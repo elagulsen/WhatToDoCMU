@@ -11,11 +11,100 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-  color: #222;
-  font-size: 1em;
+body {
+  color: #f5ccc9;
+  text-shadow: 2px 2px #ff0000;
+  font-family: arial;
   line-height: 1.4;
+  background-image: url(https://www.noamarom.com/wp-content/uploads/2016/06/plaid-e1466102843201.png);
+  text-align: center;
+  font-size: 40px;
 }
+
+#connected_groups {
+  background-image: linear-gradient(#db1f07, #f54731);
+  width: 750px;
+  text-align: center;
+  color: #f5ccc9;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 1em;
+  text-shadow: 4px 4px #ff0000;
+}
+
+.vl {
+  border-left: 3px dotted #e3b0ac;
+  height: 100px;
+  position: relative;
+  left: 50%;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-image: linear-gradient(#db1f07, #f54731);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f5ccc9;
+  height: 200px;
+  position: relative;
+  display:table-cell;
+  vertical-align:middle;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Style the header */
+.fixed-header, .fixed-footer{
+       width: 100%;
+       position: fixed;
+       background: #333;
+       padding: 10px 0;
+       color: #fff;
+   }
+   .fixed-header{
+       top: 0;
+   }
+   .fixed-footer{
+       bottom: 0;
+   }
+   /* Some more styles to beutify this example */
+   nav a{
+       color: #fff;
+       text-decoration: none;
+       padding: 7px 25px;
+       display: inline-block;
+   }
+   .container p{
+       line-height: 200px; /* Create scrollbar to test positioning */
+       width = 100%;
+       max-width: 100%;
 
 /*
  * Remove text-shadow in selection highlight:
@@ -27,6 +116,41 @@ html {
  * Customize the background color to match your design.
  */
 
+ .image {
+   display: block;
+   width: 100%;
+   height: auto;
+ }
+
+ .overlay {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: #008CBA;
+   overflow: hidden;
+   width: 100%;
+   height: 0;
+   transition: .5s ease;
+ }
+
+ .container:hover .overlay {
+   height: 100%;
+ }
+
+ .text {
+   white-space: nowrap;
+   color: white;
+   font-size: 20px;
+   position: absolute;
+   overflow: hidden;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+ }
+
+}
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -96,12 +220,20 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
-   ========================================================================== */
+ ========================================================================== */
+
+
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
+.parallax{
+  background: url('https://media.glassdoor.com/l/84/9e/66/7c/cmu.jpg') center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
+  object-fit: scale-down;
+}
 /*
  * Hide visually and from screen readers
  */
@@ -262,4 +394,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
