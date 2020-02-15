@@ -2,6 +2,8 @@
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
 def calendar_scraper(option):
     session = HTMLSession()
 
@@ -11,7 +13,8 @@ def calendar_scraper(option):
         resp = session.get("https://thebridge.cmu.edu/events/?shortcutdate=tomorrow")
     elif option == "weekend":
         resp = session.get("https://thebridge.cmu.edu/events/?shortcutdate=this_weekend")
-    else return
+    else:
+        return
 
     resp.html.render()
 
@@ -42,3 +45,24 @@ def calendar_scraper(option):
             event_list[-1].append(event)
 
     return event_list
+
+def convert_time(bad_time):
+    time_list = bad_time.split(" ")
+    correct_time = "2020-"
+    if MONTHS.index(time_list[1]) < 10:
+        correct_time += "0" + str(MONTHS.index(time_list[1]))
+    else:
+        correct_time += str(MONTHS.index(time_list[1]))
+    correct_time += "-"
+    correct_time += str(time_list[2])
+    correct_time += "T"
+    time_int = int(time_list[4].split(":")[0])
+    if "AM" in time_list[4]:
+        if time_int >= 10: 
+            correct_time += time_list[4].replace("AM", "")
+        else:
+            correct_time += "0" + time_list[4].replace("AM", "")
+    else:
+        time_int += 12
+        correct_time += str(time_int) + ":" + time_list[4].split(":")[1]
+    return correct_time
