@@ -1,4 +1,5 @@
-# import HTMLSession from requests_html
+#! /usr/bin/python3
+
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 
@@ -66,3 +67,4 @@ def convert_time(bad_time):
         time_int += 12
         correct_time += str(time_int) + ":" + time_list[4].split(":")[1]
     return correct_time
+print(calendar_scraper('all'))

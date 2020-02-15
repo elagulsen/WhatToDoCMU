@@ -2,9 +2,9 @@ import flask
 #import bridgescrape
 from flask import Flask, render_template,request, jsonify
 
+app = Flask(__name__)
 
 #-----------FLASK APPLICATION---------------
-
 
 
 #THIS IS THE APPLICATION OBJECT, ALLOWING USE OF APP
@@ -22,13 +22,12 @@ def index():
 
 @app.route('/calendar')
 def calendar():
-    return render_template('/examples/background-events.html')
+    return render_template('/examples/google-calendar.html')
 @app.route('/recommendations')
 def recommendations():
-    return render_template('recommendations.html')
+    return render_template('index.html')
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('index.html')
 if __name__ == 'main':
-
     app.run()
